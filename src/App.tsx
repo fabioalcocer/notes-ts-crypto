@@ -1,9 +1,9 @@
+import { JSONContent } from '@tiptap/react'
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styles from './App.module.css'
 import NoteEditor from './NoteEditor'
 import { Note } from './types'
-import { JSONContent } from '@tiptap/react'
 
 function App() {
   const [notes, setNotes] = useState<Record<string, Note>>({})
@@ -16,7 +16,7 @@ function App() {
   const handleChangeNoteContent = (
     noteId: string,
     content: JSONContent,
-    title: "New Note"
+    title = 'New Note'
   ) => {
     setNotes((notes) => ({
       ...notes,
@@ -24,7 +24,7 @@ function App() {
         ...notes[noteId],
         updatedAt: new Date(),
         content,
-        title
+        title,
       },
     }))
   }

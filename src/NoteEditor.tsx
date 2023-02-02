@@ -1,6 +1,6 @@
 import { JSONContent } from '@tiptap/react'
 import { Note } from './types'
-import { useEditor, EditorContent } from '@tiptap/react'
+import { useEditor, EditorContent, generateText } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import styles from './NoteEditor.module.css'
 
@@ -23,10 +23,11 @@ function NoteEditor({ note, onChange }: Props) {
       },
       onUpdate: ({ editor }) => {
         const editorContent = editor.getJSON()
-        const firstNoteContent = editorContent.content?.[0]
+        const firstNodeContent = editorContent.content?.[0]
         onChange(
           editorContent,
-          firstNoteContent && generateText(firstNoteContent, extensions)
+          firstNodeContent &&
+            generateText(firstNodeContent, extensions)
         )
       },
     },
