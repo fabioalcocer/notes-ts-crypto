@@ -3,15 +3,24 @@ import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styles from './App.module.css'
 import NoteEditor from './NoteEditor'
+import storage from './storage'
 import { Note } from './types'
+
+const STORAGE_KEY = "notes"
 
 function App() {
   const [notes, setNotes] = useState<Record<string, Note>>({})
   const [activeNoteId, setActiveNoteId] = useState<string | null>(
     null
   )
-
   const activeNote = activeNoteId ? notes[activeNoteId] : null
+
+  const saveNote = (note: Note) => {
+    const noteIds = storage.get<string[]>(STORAGE_KEY, [])
+    const noteIdsWithoutNote = noteIds.filter((id) => id !== note.id)
+    storage.set(STORAGE_KEY, [...noteIdsWithoutNote, note.id])
+    storage.set(`${STORAGE_KEY}: ${note.id}`, note)
+  }
 
   const handleChangeNoteContent = (
     noteId: string,
@@ -41,6 +50,7 @@ function App() {
       ...notes,
       [newNote.id]: newNote,
     }))
+    saveNote(newNote)
   }
 
   const handleChangeActiveNote = (id: string) => {
