@@ -1,0 +1,45 @@
+.editorContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.textEditor {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.textEditorContent {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 1.5rem;
+}
+
+.toolbarButton {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  color: #0f172a;
+  border: none;
+  cursor: pointer;
+}
+
+.toolbarButton:hover {
+  background-color: #f1f5f9;
+}
+
+.toolbarButtonActive {
+  composes: toolbarButton;
+  background-color: #e2e8f0;
+}
