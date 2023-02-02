@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styles from './App.module.css'
 import NoteEditor from './NoteEditor'
+import debounce from './debounce'
 import storage from './storage'
 import { Note } from './types'
 
@@ -22,12 +23,12 @@ const loadNotes = () => {
   return notes
 }
 
-const saveNote = (note: Note) => {
+const saveNote = debounce((note: Note) => {
   const noteIds = storage.get<string[]>(STORAGE_KEY, [])
   const noteIdsWithoutNote = noteIds.filter((id) => id !== note.id)
   storage.set(STORAGE_KEY, [...noteIdsWithoutNote, note.id])
   storage.set(`${STORAGE_KEY}:${note.id}`, note)
-}
+}, 200)
 
 function App() {
   const [notes, setNotes] = useState<Record<string, Note>>(() =>
@@ -43,15 +44,19 @@ function App() {
     content: JSONContent,
     title = 'New Note'
   ) => {
+    const updatedNote = {
+      ...notes[noteId],
+      updatedAt: new Date(),
+      content,
+      title,
+    }
+
     setNotes((notes) => ({
       ...notes,
-      [noteId]: {
-        ...notes[noteId],
-        updatedAt: new Date(),
-        content,
-        title,
-      },
+      [noteId]: updatedNote,
     }))
+
+    saveNote(updatedNote)
   }
 
   const handleCreateNewNote = () => {
