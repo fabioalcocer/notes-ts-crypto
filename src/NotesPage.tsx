@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styles from './NotesPage.module.css'
 import NoteEditor from './NoteEditor'
-import debounce from './debounce'
-import storage from './storage'
+import debounce from './utils/debounce'
+import storage from './utils/storage'
 import { Note, UserData } from './types'
 import { AES, enc } from 'crypto-js'
 
@@ -150,7 +150,7 @@ function NotesPage({ userData }: Props) {
           }
         />
       ) : (
-        <div>Create a new note or select an existing one.</div>
+        <div className={styles.emptyNoteText}>Create a new note or select an existing one.</div>
       )}
     </div>
   )

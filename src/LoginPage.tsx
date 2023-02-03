@@ -2,7 +2,7 @@ import { AES, enc } from 'crypto-js'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styles from './LoginPage.module.css'
-import storage from './storage'
+import storage from './utils/storage'
 import { UserData } from './types';
 
 const PASSPHRASE_STORAGE_KEY = 'passphrase'

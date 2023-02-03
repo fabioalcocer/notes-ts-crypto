@@ -53,3 +53,8 @@
   composes: sidebarItem;
   background-color: #e2e8f0;
 }
+
+.emptyNoteText {
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+}
