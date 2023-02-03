@@ -1,0 +1,48 @@
+.pageContainer {
+  min-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.labelText {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-bottom: 0.25rem;
+}
+
+.textField {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0px 2px 5px 0px #e2e8f0;
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+  height: 2.25rem;
+}
+
+.button {
+  border: none;
+  background-color: #2563eb;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 5px 0px #e2e8f0;
+  color: white;
+  height: 2.25rem;
+  padding: 0 1.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1d4ed8;
+}
