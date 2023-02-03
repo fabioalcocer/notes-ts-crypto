@@ -5,7 +5,12 @@ import styles from './NotesPage.module.css'
 import NoteEditor from './NoteEditor'
 import debounce from './debounce'
 import storage from './storage'
-import { Note } from './types'
+import { Note, UserData } from './types'
+import { AES, enc } from 'crypto-js'
+
+type Props = {
+  userData: UserData
+}
 
 const STORAGE_KEY = 'notes'
 
@@ -30,7 +35,7 @@ const saveNote = debounce((note: Note) => {
   storage.set(`${STORAGE_KEY}:${note.id}`, note)
 }, 200)
 
-function App() {
+function NotesPage({ userData }: Props) {
   const [notes, setNotes] = useState<Record<string, Note>>(() =>
     loadNotes()
   )
@@ -123,4 +128,4 @@ function App() {
   )
 }
 
-export default App
+export default NotesPage
