@@ -63,6 +63,7 @@ const saveNote = debounce(
 )
 
 function NotesPage({ userData }: Props) {
+  const [active, setActive] = useState<boolean>(false)
   const [notes, setNotes] = useState<Record<string, Note>>(() =>
     loadNotes(userData)
   )
@@ -117,12 +118,24 @@ function NotesPage({ userData }: Props) {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.sidebar}>
+      <div
+        className={
+          active
+            ? `${styles.sidebar} ${styles.active}`
+            : styles.sidebar
+        }
+      >
         <button
           className={styles.sidebarButton}
           onClick={handleCreateNewNote}
         >
           +
+        </button>
+        <button
+          onClick={() => setActive(!active)}
+          className={styles.moveSidebar}
+        >
+          &gt;
         </button>
         <div className={styles.sidebarList}>
           {notesList.map((note) => (
