@@ -122,7 +122,7 @@ function NotesPage({ userData }: Props) {
           className={styles.sidebarButton}
           onClick={handleCreateNewNote}
         >
-          New Note
+          +
         </button>
         <div className={styles.sidebarList}>
           {notesList.map((note) => (
@@ -137,7 +137,7 @@ function NotesPage({ userData }: Props) {
               tabIndex={0}
               onClick={() => handleChangeActiveNote(note.id)}
             >
-              {note.title}
+              <p>{note.title}</p>
             </div>
           ))}
         </div>
@@ -150,7 +150,9 @@ function NotesPage({ userData }: Props) {
           }
         />
       ) : (
-        <div className={styles.emptyNoteText}>Create a new note or select an existing one.</div>
+        <div className={styles.emptyNoteText}>
+          Create a new note or select an existing one.
+        </div>
       )}
     </div>
   )

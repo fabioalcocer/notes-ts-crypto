@@ -8,8 +8,9 @@
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  border-bottom: 1px solid #e2e8f0;
+  gap: 0.6rem;
+  border-bottom: 1px solid #e2e8f02f;
+  padding: 0.875rem;
 }
 .textEditor {
   outline: none;
@@ -27,19 +28,19 @@
 }
 
 .toolbarButton {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  background-color: white;
-  color: #0f172a;
+  background-color: #a36cf0;
+  color: #f2f2f2;
   border: none;
   cursor: pointer;
 }
 
 .toolbarButton:hover {
-  background-color: #f1f5f9;
+  background-color: #b186ed;
 }
 
 .toolbarButtonActive {
   composes: toolbarButton;
-  background-color: #e2e8f0;
+  background-color: #7c25f5af;
 }

@@ -5,5 +5,7 @@
 }
 
 body {
+  background-color: #191919;
+  color: white;
   font-family: "Noto Sans", sans-serif;
 }

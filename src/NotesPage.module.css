@@ -10,48 +10,67 @@
   width: 15rem;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f02f;
   overflow: auto;
 }
 
 .sidebarButton {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-content: center;
+  padding-bottom: 2px;
+  padding-left: 7px;
   margin: 1.5rem;
-  padding: 0.5rem;
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0px 2px 5px 0px #e2e8f0;
-  border: 1px solid #e2e8f0;
-  font-weight: 600;
-  color: #0f172a;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  background-color: #a46af5;
+  box-shadow: 0px 0px 6px 0px #606060b2;
+  /* border: 1px solid #e2e8f054; */
+  font-weight: 500;
+  color: #f2f2f2;
   cursor: pointer;
+  transition: all .4s;
 }
 
 .sidebarButton:hover {
+  background-color: #8c3dfb;
   border: 1px solid #cbd5e1;
+  transition: all .4s;
 }
 
 .sidebarList {
   display: flex;
   flex-direction: column;
   overflow: auto;
-  gap: 0.125rem;
+  /* gap: 0.125rem; */
   padding: 0.5rem 0;
 }
 
 .sidebarItem {
+  background-color: #42424257;
   padding: 0.5rem;
-  margin: 0 1.5rem;
+  /* margin: 0 0.5rem; */
+  /* border-radius: 0.25rem; */
   cursor: pointer;
-  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.sidebarItem p {
+  margin: 0;
+  padding: .5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sidebarItem:hover {
-  background-color: #f1f5f9;
+  background-color: #74747457;
 }
 
 .sidebarItemActive {
   composes: sidebarItem;
-  background-color: #e2e8f0;
+  background-color: #8a8a8a57;
 }
 
 .emptyNoteText {
