@@ -7,6 +7,10 @@ import debounce from './utils/debounce'
 import storage from './utils/storage'
 import { Note, UserData } from './types'
 import { AES, enc } from 'crypto-js'
+import {
+  BsFillCaretLeftFill,
+  BsFillCaretRightFill,
+} from 'react-icons/bs'
 
 type Props = {
   userData: UserData
@@ -135,7 +139,11 @@ function NotesPage({ userData }: Props) {
           onClick={() => setActive(!active)}
           className={styles.moveSidebar}
         >
-          &gt;
+          {active ? (
+            <BsFillCaretRightFill className={styles.moveSidebarBtn} />
+          ) : (
+            <BsFillCaretLeftFill className={styles.moveSidebarBtn} />
+          )}
         </button>
         <div className={styles.sidebarList}>
           {notesList.map((note) => (
